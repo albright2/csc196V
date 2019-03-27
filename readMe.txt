@@ -26,3 +26,7 @@ http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
 +within the 1960_demo.tsv, countrycode column was renamed to "id" and Population column renamed to "population" (note:P to p)
 +changed the index.html to read from country_population.tsv to 1960_Demo.tsv
 +ran the index.html in firefox, displayed the population stats as desired
+##################################################
+3-27-19
+
+-added 3 buttons to color code the countries by: population, fertility rate, and life expectancy
