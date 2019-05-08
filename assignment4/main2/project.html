@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 125%;
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  padding: 25px;
+  text-align: center;
+  background-image: url("world_banner.jpg");
+  color: white;
+}
+
+.fakeimg {
+  width: 100%;
+  padding: 20px;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 20%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: Black;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+
+#Home {background-color: white;}
+#News {background-color: white;}
+#Contact {background-color: white;}
+#About {background-color: white;}
+#Original {background-color: white;}
+</style>
+</head>
+
+
+<body>
+
+<!-- Header -->
+<div class="header">
+    <h1>World Population</h1>
+    <p>Between <b>1960</b> and <b>2016</b></p>
+</div>
+
+<button class="tablink" onclick="openPage('Home', this, 'lightblue')" id="defaultOpen">Home Page</button>
+<button class="tablink" onclick="openPage('News', this, 'green')">Histogram</button>
+<button class="tablink" onclick="openPage('Contact', this, 'blue')">Mean</button>
+<button class="tablink" onclick="openPage('About', this, 'orange')">Max & Min</button>
+<button class="tablink" onclick="openPage('Original', this, 'silver')">Original</button>
+
+
+<div id="Home" class="tabcontent">
+  <h3>Home Page</h3>
+    <p>This website will be the architecture for the interactive graphics</p>
+    <p>Please follow the tabs in the navigation bar as it will guide onto the next visualiztion</p>
+    <p>Each visualiztion will include a description on the the qeustion(s) it aims to answer</p>
+    <P>Currently all of the graphs are just static pictures, but we will try our best to describe the purpose/reason behind each visualiztion</P>
+    <h1>By Matthew Parker, Jeremiah Albright, and Adrian Caberos</h1>
+
+
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
+    <link rel="stylesheet" type="text/css" href="sequences.css"/>
+ <p>This is a pie chart that demonstates the worlds over-all population for a particular year, and is segregated by contintents, and their countries</p>
+
+ </head>
+  <body>
+    <div id="main">
+      <div id="sequence"></div>
+      <div id="chart">
+        <div id="explanation" style="visibility: hidden;">
+          <span id="percentage"></span><br/>
+        % of Total World Population of 7,714,576,923
+        </div>
+      </div>
+    </div>
+    <div id="sidebar">
+      <input type="checkbox" id="togglelegend"> Legend<br/>
+      <div id="legend" style="visibility: hidden;"></div>
+    </div>
+    <script type="text/javascript" src="sequences.js"></script>
+    <script type="text/javascript">
+      // Hack to make this example display correctly in an iframe on bl.ocks.org
+      d3.select(self.frameElement).style("height", "700px");
+  </script> 
+
+
+</div>
+
+<div id="News" class="tabcontent">
+  <h3>Histogram</h3>
+  <img src="graph.png" style="height:400px; ">
+  <p>This is a prototype of what the histogram for my dataset would look like.</p>
+  <p>I am using a histogram to either show a countries fertility rate and/or life expectancy over time.</p>
+  <p>It is still a work in progress. So far the output works for the example dataset. </p>
+  <p>The purpose is to see the trend in fertility rates, population, and life span.</p>
+  <p>I am hoping to include a comparison between countries as well.</p>
+  <p>I imagine the final product to include a drop down menu where you are able to select one or more countries to compare.</p>
+  <p>The counties will then be plotted on the same visualiztion, so that it will be easier to track the changes/differences between the countries as time passes.</p>
+</div>
+
+<div id="Contact" class="tabcontent">
+  <h3>Sunburst Direct graph</h3>
+  <img src="sunburst.jpg" style="height:400px;">
+  <p>source = https://bl.ocks.org/kerryrodden/7090426
+  <p>This page will have a drop-down menu list with selectable years that will update the sunburst graph.</p>
+  <p>Once a year has been chosen, between the year 1960-2016, the sunburst graph will be similar to a pi-chart with countries representing a porportion of the total population.</p>
+  <p>To explore the sunburst, start from the middle where "100%" is displayed (100% of total population), and navigate outwards from continent and then to country.</p>
+  <p>The overall goal is to compare country populations within a given year, in a easy to read and fun to explore format.</p>
+  <p>This graph will best solve the question of which countries have the most population within a said year, and perhaps teach someone which countries belong to what continent.</p>
+</div>
+
+<div id="About" class="tabcontent">
+  <h3>Maximum and Minimium Charts</h3>
+  <img src="Maximum.jpg" style="height:400px;">
+  <img src="Minimum.jpg" style="height:400px;">
+  <p>The purpose of these visualiztion is to compare the 5 more poplated to the 5 least populated countries for specfic years.</p>
+  <p>The final product would include a drop down menu, or a scroll bar, where the user will select the year, and it would display the top five and lowest five countries.</p>
+  <p>I would also like to include buttons for all three values (population, life span, and fertility); that way the user will also be able to decide which values to observe.</p>
+  <p> The question that I hope to answer is to understand which countries excel in these three areas, and see what or how they are different from those countries that struggle in these areas.</p>
+</div>
+
+<div id="Original" class="tabcontent">
+  <h3>Original Graphic</h3>
+
+<iframe src="index3.html" width ="1000" height ="1000"></iframe>
+
+
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+
+
+</html> 
